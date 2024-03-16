@@ -51,10 +51,15 @@ const QuestionDetailPage = () => {
         setError("Please select a choice before submitting your vote.");
         return;
       }
+    const formData = new FormData();
+    formData.append('choice', selectedChoice);
 
     console.log("SELECTED CHOICE: ", selectedChoice)
     try {
-      await axios.post(`http://127.0.0.1:8800/polls/${questionId}/vote/`, { "choice": parseInt(selectedChoice) },{
+      await axios.post(`http://127.0.0.1:8800/polls/${questionId}/vote/`, formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data', // Set the content type to form data
+        },
     });
       
       console.log('Vote submitted successfully'); // Add this line
