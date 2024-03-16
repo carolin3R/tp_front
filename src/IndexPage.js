@@ -36,7 +36,7 @@ class IndexPage extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://127.0.0.1:8080/polls/')
+    axios.get('http://127.0.0.1:8800/polls/')
       .then(response => {
         this.setState({ latestQuestions: response.data.latest_question_list });
       })

@@ -34,10 +34,10 @@ const QuestionResultPage = () => {
     const [error, setError] = useState(null); // Define error state
 
     useEffect(() => {
-        const apiUrl = `http://127.0.0.1:8080/polls/${questionId}/results`;
+        const apiUrl = `http://127.0.0.1:8800/polls/${questionId}/results`;
         console.log('Request URL:', apiUrl); // Log the URL
         console.log(questionId)
-        axios.get(`http://127.0.0.1:8080/polls/${questionId}/results`)
+        axios.get(`http://127.0.0.1:8800/polls/${questionId}/results`)
           .then(response => {
             setQuestion(response.data);
             setLoading(false);

@@ -35,7 +35,7 @@ const QuestionDetailPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const apiUrl = `http://127.0.0.1:8080/polls/${questionId}/`;
+    const apiUrl = `http://127.0.0.1:8800/polls/${questionId}/`;
     console.log('Request URL:', apiUrl); // Log the URL
     axios.get(apiUrl)
       .then(response => {
@@ -54,7 +54,7 @@ const QuestionDetailPage = () => {
 
     console.log("SELECTED CHOICE: ", selectedChoice)
     try {
-      await axios.post(`http://127.0.0.1:8080/polls/${questionId}/vote/`, { "choice": parseInt(selectedChoice) },{
+      await axios.post(`http://127.0.0.1:8800/polls/${questionId}/vote/`, { "choice": parseInt(selectedChoice) },{
     });
       
       console.log('Vote submitted successfully'); // Add this line
@@ -111,7 +111,7 @@ const QuestionDetailPage = () => {
             <li key={choice.id}>
               <input
                 type="radio"
-                //name="choice"
+                name="choice"
                 value={choice.id}
                 onChange={handleChange}
                 checked={selectedChoice === String(choice.id)}
